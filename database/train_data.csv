@@ -1,0 +1,7 @@
+flow_rate,pressure,vibration,label
+300,45,0.02,Normal
+280,44,0.03,Normal
+310,46,0.02,Normal
+150,25,0.10,Leak
+140,23,0.12,Leak
+130,20,0.15,Leak
