@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
 import psycopg2
+import pandas as pd
+import joblib
 
 app = Flask(__name__)
 

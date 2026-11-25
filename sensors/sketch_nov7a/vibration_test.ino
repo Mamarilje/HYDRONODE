@@ -1,22 +1,34 @@
-#define VIBRATION_PIN 35
+#define S0 25
+#define S1 26
+#define S2 27
+#define S3 14
 
-void setup()
-{
-    Serial.begin(115200);
+#define SIG 34
+
+void selectChannel(int channel) {
+  digitalWrite(S0, channel & 1);
+  digitalWrite(S1, (channel >> 1) & 1);
+  digitalWrite(S2, (channel >> 2) & 1);
+  digitalWrite(S3, (channel >> 3) & 1);
 }
 
-void loop()
-{
-    int vibrationValue =
-        analogRead(VIBRATION_PIN);
+void setup() {
+  Serial.begin(115200);
 
-    Serial.print(
-        "Vibration Raw: "
-    );
+  pinMode(S0, OUTPUT);
+  pinMode(S1, OUTPUT);
+  pinMode(S2, OUTPUT);
+  pinMode(S3, OUTPUT);
+}
 
-    Serial.println(
-        vibrationValue
-    );
+void loop() {
 
-    delay(500);
+  selectChannel(0);  // Vibration sensor on C0
+    
+  int vibration = analogRead(SIG);
+
+  Serial.print("Vibration: ");
+  Serial.println(vibration);
+
+  delay(500);
 }

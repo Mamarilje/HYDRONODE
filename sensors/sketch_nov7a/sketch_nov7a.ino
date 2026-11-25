@@ -57,9 +57,17 @@ void loop()
         http.addHeader("Content-Type", "application/json");
 
         String json =
-"{\"flow_rate\":" + String(count) +
-",\"pressure\":42" +
-",\"vibration\":0.15}";
+        "{"
+        "\"flow1\":" + String(flow1) + "," +
+        "\"flow2\":" + String(flow2) + "," +
+        "\"flow3\":" + String(flow3) + "," +
+        "\"flow4\":" + String(flow4) + "," +
+
+        "\"pressure1\":" + String(pressure1) + "," +
+        "\"pressure2\":" + String(pressure2) + "," +
+        "\"pressure3\":" + String(pressure3) + "," +
+        "\"pressure4\":" + String(pressure4) +
+        "}";
 
         int responseCode = http.POST(json);
 
